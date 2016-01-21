@@ -1,12 +1,12 @@
-SERV_TARGET=myftpd
-CLI_TARGET=myftpc
+SERV_TARGET=dist/myftpd
+CLI_TARGET=dist/myftpc
 
 all: $(SERV_TARGET) $(CLI_TARGET)
 
-$(SERV_TARGET): myftpd.c server_cmd.c sock_util.c
+$(SERV_TARGET): src/myftpd.c src/server_cmd.c src/sock_util.c
 	gcc -Wall -o $@ $^
 
-$(CLI_TARGET): myftpc.c client_cmd.c sock_util.c
+$(CLI_TARGET): src/myftpc.c src/client_cmd.c src/sock_util.c
 	gcc -Wall -o $@ $^
 
 clean:
